@@ -8,14 +8,12 @@ int main()
 	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
 
 	// Create the window and OpenGL context
-	InitWindow(1280, 720, "Hello Raylib");
-	// ToggleFullscreen();
+	InitWindow(1280, 800, "DnD");
 
 	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
 	SearchAndSetResourceDir("resources");
 
 	// Load a texture from the resources directory
-	Texture wabbit = LoadTexture("wabbit_alpha.png"); // Test
 	Texture background = LoadTexture("Backgrounds/Elvebakken.jpg");
 	Rectangle src = {0, 0, background.width, background.height};
 	Vector2 origin = {0, 0};
@@ -23,17 +21,10 @@ int main()
 	// game loop
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
-		// drawing
 		BeginDrawing();
-
 		// Setup the back buffer for drawing (clear color and depth buffers)
 		ClearBackground(BLACK);
 
-		// draw some text using the default font
-		DrawText("Hello Raylib", 200, 200, 20, WHITE);
-
-		// draw our texture to the screen
-		DrawTexture(wabbit, 400, 200, WHITE);
 		Rectangle dst = {0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()};
 		DrawTexturePro(background, src, dst, origin, 0.0f, WHITE);
 
@@ -43,7 +34,6 @@ int main()
 
 	// cleanup
 	// unload our texture so it can be cleaned up
-	UnloadTexture(wabbit);
 	UnloadTexture(background);
 
 	// destroy the window and cleanup the OpenGL context
