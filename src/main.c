@@ -1,14 +1,6 @@
-/*
-Raylib example file.
-This is an example main file for a simple raylib project.
-Use this as a starting point or replace it with your code.
-
-by Jeffery Myers is marked with CC0 1.0. To view a copy of this license, visit https://creativecommons.org/publicdomain/zero/1.0/
-
-*/
-
 #include "raylib.h"
 
+// #include "../resources/Colors/colors.h"
 #include "resource_dir.h" // utility header for SearchAndSetResourceDir
 
 int main()
@@ -24,6 +16,7 @@ int main()
 
 	// Load a texture from the resources directory
 	Texture wabbit = LoadTexture("wabbit_alpha.png"); // Test
+	Texture background = LoadTexture("Backgrounds/Elvebakken.jpg");
 
 	// game loop
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
@@ -39,6 +32,7 @@ int main()
 
 		// draw our texture to the screen
 		DrawTexture(wabbit, 400, 200, WHITE);
+		DrawTexture(background, 1, 1, WHITE);
 
 		// end the frame and get ready for the next one  (display frame, poll input, etc...)
 		EndDrawing();
