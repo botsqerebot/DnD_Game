@@ -5,10 +5,17 @@
 int main()
 {
 	// Tell the window to use vsync and work on high DPI displays
-	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
+	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_BORDERLESS_WINDOWED_MODE | FLAG_WINDOW_RESIZABLE);
+
+	// Get the usable area of the current monitor (excluding taskbar/menu bar)
+	// Rectangle workArea = GetMonitorWorkarea(GetCurrentMonitor());
+
+	int monitor = GetCurrentMonitor();
+	int winWidth = GetMonitorWidth(monitor);
+	int winHeight = GetMonitorHeight(monitor);
 
 	// Create the window and OpenGL context
-	InitWindow(1280, 800, "DnD");
+	InitWindow(winWidth, winHeight, "DnD");
 
 	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
 	SearchAndSetResourceDir("resources");
@@ -18,7 +25,6 @@ int main()
 	Rectangle src = {0, 0, background.width, background.height};
 	Vector2 origin = {0, 0};
 
-	// game loop
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
 		BeginDrawing();
@@ -32,10 +38,8 @@ int main()
 		EndDrawing();
 	}
 
-	// cleanup
 	// unload our texture so it can be cleaned up
 	UnloadTexture(background);
-
 	// destroy the window and cleanup the OpenGL context
 	CloseWindow();
 	return 0;
