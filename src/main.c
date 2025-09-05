@@ -2,6 +2,7 @@
 
 // #include "../resources/Colors/colors.h"
 #include "resource_dir.h" // utility header for SearchAndSetResourceDir
+#include "buttons/createButton.h"
 int main()
 {
 	// Tell the window to use vsync and work on high DPI displays
@@ -27,6 +28,8 @@ int main()
 
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
+		buttonFunction(150, 50, 100, 200, "Test", BLUE, 1);
+		buttonFunction(150, 50, 100, 300, "Button 2", GRAY, 2);
 		BeginDrawing();
 		// Setup the back buffer for drawing (clear color and depth buffers)
 		ClearBackground(BLACK);
@@ -34,6 +37,8 @@ int main()
 		Rectangle dst = {0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()};
 		DrawTexturePro(background, src, dst, origin, 0.0f, WHITE);
 
+		drawButton(150, 50, 100, 200, "Hello", BLUE, ORANGE, 1);
+		drawButton(150, 50, 100, 300, "Button 2", GRAY, ORANGE, 2);
 		// end the frame and get ready for the next one  (display frame, poll input, etc...)
 		EndDrawing();
 	}
