@@ -1,7 +1,7 @@
 
 CC = cc
 #SRC = src/main.c
-SRC = $(wildcard src/**/*.c) $(wildcard src/*.c)
+SRC = $(wildcard src/**/**/*.c) $(wildcard src/**/*.c) $(wildcard src/*.c)
 OUT = DnD_Game
 BUILD_DIR = build
 OUT_PATH = $(BUILD_DIR)/$(OUT)

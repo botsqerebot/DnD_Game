@@ -2,7 +2,7 @@
 
 // #include "../resources/Colors/colors.h"
 #include "resource_dir.h" // utility header for SearchAndSetResourceDir
-#include "buttons/createButton.h"
+#include "interactivity/buttons/createButton.h"
 int main()
 {
 	// Tell the window to use vsync and work on high DPI displays
@@ -28,8 +28,8 @@ int main()
 
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
-		buttonFunction(150, 50, 100, 200, "Test", BLUE, 1);
-		buttonFunction(150, 50, 100, 300, "Button 2", GRAY, 2);
+		buttonFunction(150, 50, 100, 200, 1);
+		buttonFunction(150, 50, 100, 300, 2);
 		BeginDrawing();
 		// Setup the back buffer for drawing (clear color and depth buffers)
 		ClearBackground(BLACK);

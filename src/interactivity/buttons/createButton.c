@@ -36,27 +36,18 @@ while (!WindowShouldClose())
 #include "raylib.h"
 #include "stdio.h"
 
-void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, const char *btnText, Color btnColor, int btnID)
+#include "../mouse/mouseScaling.h"
+
+void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, int btnID)
 {
     int ID = btnID;
     Rectangle buttonRect = {btnX, btnY, btnWidth, btnHeight};
-    Color buttonColor = btnColor;
-    bool mouseOverButton = CheckCollisionPointRec(GetMousePosition(), buttonRect);
 
-    if (mouseOverButton)
+    bool mouseOverButton = CheckCollisionPointRec(GetMousePosition(), buttonRect);
+    if (mouseOverButton && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
     {
-        buttonColor = LIGHTGRAY; // Hover color
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-        {
-            // Button clicked, perform action
-            buttonColor = DARKGRAY; // Pressed color
-            // TraceLog(LOG_INFO, "Button Clicked!");
-            printf("Button %d clicked", ID);
-        }
-    }
-    else
-    {
-        buttonColor = ORANGE; // Normal color
+        TraceLog(LOG_INFO, "Button %d clicked", ID);
+        // printf("Button %d clicked", ID);
     }
 }
 
