@@ -34,11 +34,8 @@ int main()
 		// Setup the back buffer for drawing (clear color and depth buffers)
 		ClearBackground(BLACK);
 
-		// Draw the first background texture
-		Rectangle src = {0, 0, backgroundTextures[0].width, backgroundTextures[0].height};
-		Vector2 origin = {0, 0};
-		Rectangle dst = {0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()};
-		DrawTexturePro(backgroundTextures[0], src, dst, origin, 0.0f, WHITE);
+		// Draw the background texture
+		changeBackgroundTexture(1);
 
 		drawButton(150, 50, 100, 200, "Hello", BLUE, ORANGE, 1);
 		drawButton(150, 50, 100, 300, "Button 2", GRAY, ORANGE, 2);

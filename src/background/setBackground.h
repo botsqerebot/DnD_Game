@@ -8,5 +8,6 @@
 Texture2D backgroundTextures[MAX_BACKGROUNDS];
 
 void loadBackgroundTextures();
+void changeBackgroundTexture(int backgroundID);
 
 #endif
