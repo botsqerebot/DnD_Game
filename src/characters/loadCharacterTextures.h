@@ -8,5 +8,6 @@ const char *grayMan;
 Texture2D characterTexture;
 
 void setCharacterTextures(void *userData);
+void ViewCharacters(int x, int y);
 
 #endif
