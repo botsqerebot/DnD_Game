@@ -1,42 +1,5 @@
-/* // Initalization
-Rectangle buttonRect = { 100, 100, 150, 50 };
-const char* buttonText = "Click Me!";
-Color buttonColor = BLUE; // Default color
-
-// Game Loop
-while (!WindowShouldClose())
-{
-    // Update
-    bool mouseOverButton = CheckCollisionPointRec(GetMousePosition(), buttonRect);
-
-    if (mouseOverButton)
-    {
-        buttonColor = LIGHTGRAY; // Hover color
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-        {
-            // Button clicked, perform action
-            buttonColor = DARKGRAY; // Pressed color
-            TraceLog(LOG_INFO, "Button Clicked!");
-        }
-    }
-    else
-    {
-        buttonColor = BLUE; // Normal color
-    }
-
-    // Drawing
-    BeginDrawing();
-    ClearBackground(RAYWHITE);
-
-    DrawRectangleRec(buttonRect, buttonColor);
-    DrawText(buttonText, buttonRect.x + 20, buttonRect.y + 15, 20, BLACK); // Adjust text position as needed
-
-    EndDrawing();
-} */
 #include "raylib.h"
 #include "stdio.h"
-
-#include "../mouse/mouseScaling.h"
 
 void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, int btnID)
 {
