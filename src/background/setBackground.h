@@ -6,8 +6,11 @@
 #define MAX_BACKGROUNDS 2
 
 Texture2D backgroundTextures[MAX_BACKGROUNDS];
-
+int bg1;
+int bg2;
+int currentBg;
+void setBackground(void *userData);
 void loadBackgroundTextures();
-void changeBackgroundTexture(int backgroundID);
+void changeBackgroundTexture(void *userData);
 
 #endif

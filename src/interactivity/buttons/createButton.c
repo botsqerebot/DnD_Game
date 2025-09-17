@@ -1,7 +1,9 @@
 #include "raylib.h"
 #include "stdio.h"
 
-void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, int btnID)
+typedef void (*ButtonCallback)(void *userData);
+
+void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, int btnID, ButtonCallback callback, void *userdata)
 {
     int ID = btnID;
     Rectangle buttonRect = {btnX, btnY, btnWidth, btnHeight};
@@ -10,7 +12,9 @@ void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, int btnID)
     if (mouseOverButton && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
     {
         TraceLog(LOG_INFO, "Button %d clicked", ID);
-        // printf("Button %d clicked", ID);
+        // use a function i want to pass down using the parameters
+        if (callback != NULL)
+            callback(userdata);
     }
 }
 

@@ -4,6 +4,17 @@
 
 Texture2D backgroundTextures[MAX_BACKGROUNDS];
 
+int bg1 = 0;
+int bg2 = 1;
+
+int currentBg = 0;
+
+void setBackground(void *userData)
+{
+    int *bgIndex = (int *)userData;
+    currentBg = *bgIndex;
+}
+
 void loadBackgroundTextures()
 {
     const char *backgrounds[] = {"Elvebakken.jpg", "Space.jpg"};
@@ -16,10 +27,11 @@ void loadBackgroundTextures()
     }
 }
 
-void changeBackgroundTexture(int backgroundID)
+void changeBackgroundTexture(void *userData)
 {
-    Rectangle src = {0, 0, backgroundTextures[backgroundID].width, backgroundTextures[backgroundID].height};
+    int *bgIndex = (int *)userData;
+    Rectangle src = {0, 0, backgroundTextures[*bgIndex].width, backgroundTextures[*bgIndex].height};
     Rectangle dst = {0, 0, (float)GetScreenWidth(), (float)GetScreenHeight()};
     Vector2 origin = {0, 0};
-    DrawTexturePro(backgroundTextures[backgroundID], src, dst, origin, 0.0f, WHITE);
+    DrawTexturePro(backgroundTextures[*bgIndex], src, dst, origin, 0.0f, WHITE);
 };
