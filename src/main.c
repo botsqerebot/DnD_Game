@@ -1,32 +1,12 @@
 #include "raylib.h"
-
-// #include "../resources/Colors/colors.h"
-#include "resource_dir.h" // utility header for SearchAndSetResourceDir
 #include "interactivity/buttons/createButton.h"
 #include "background/setBackground.h"
 #include "interactivity/adding2+2.h"
+#include "startup/initi.h"
 
 int main()
 {
-	// Tell the window to use vsync and work on high DPI displays
-	SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI | FLAG_BORDERLESS_WINDOWED_MODE | FLAG_WINDOW_RESIZABLE);
-
-	// Get the usable area of the current monitor (excluding taskbar/menu bar)
-	// Rectangle workArea = GetMonitorWorkarea(GetCurrentMonitor());
-
-	int monitor = GetCurrentMonitor();
-	int winWidth = GetMonitorWidth(monitor);
-	int winHeight = GetMonitorHeight(monitor);
-
-	// Create the window and OpenGL context
-	InitWindow(winWidth, winHeight, "DnD");
-
-	// Utility function from resource_dir.h to find the resources folder and set it as the current working directory so we can load from it
-	SearchAndSetResourceDir("resources");
-
-	// Load a texture from the resources directory
-	loadBackgroundTextures();
-
+	initilizeStartup();
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
 		BeginDrawing();
