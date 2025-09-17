@@ -1,7 +1,7 @@
 #include "raylib.h"
 #include "interactivity/buttons/createButton.h"
 #include "background/setBackground.h"
-#include "interactivity/adding2+2.h"
+#include "characters/loadCharacterTextures.h"
 #include "startup/initi.h"
 
 int main()
@@ -17,9 +17,11 @@ int main()
 		changeBackgroundTexture(&currentBg);
 		buttonFunction(150, 50, 100, 200, 1, setBackground, &bg1);
 		buttonFunction(150, 50, 100, 300, 2, setBackground, &bg2);
+		buttonFunction(150, 50, 100, 400, 3, setCharacterTextures, (void *)whiteMan);
 
 		drawButton(150, 50, 100, 200, "Hello", BLUE, ORANGE, 1);
 		drawButton(150, 50, 100, 300, "World!", GRAY, ORANGE, 2);
+		drawButton(150, 50, 100, 400, "Character!", GRAY, ORANGE, 3);
 		// end the frame and get ready for the next one  (display frame, poll input, etc...)
 		EndDrawing();
 	}
