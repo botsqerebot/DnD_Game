@@ -5,10 +5,10 @@
 
 void gameScreenMenu()
 {
-    setBackground(&bg2);
+    // setBackground(&bg2);
     changeBackgroundTexture(&currentBg);
 
     buttonFunction(150, 50, 100, 600, 5, setGameState, &state0);
 
-    drawButton(150, 50, 100, 600, "Start game!", GRAY, ORANGE, 5);
+    drawButton(150, 50, 100, 600, "End game!", GRAY, ORANGE, 5);
 }

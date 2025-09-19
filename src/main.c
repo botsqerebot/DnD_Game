@@ -4,10 +4,12 @@
 #include "states/home/homeMeny.h"
 #include "states/game/gameState.h"
 #include "states/setGameState.h"
+#include "background/setBackground.h"
 
 int main()
 {
 	initilizeStartup();
+	int prevState = -1;
 	while (!WindowShouldClose()) // run the loop untill the user presses ESCAPE or presses the Close button on the window
 	{
 		BeginDrawing();
@@ -15,12 +17,30 @@ int main()
 		ClearBackground(BLACK);
 
 		int state = currentState;
+
+		if (state != prevState)
+		{
+			switch (state)
+			{
+			case 0:
+				setBackground(&bg1);
+				break;
+			case 1:
+				setBackground(&bg2);
+				break;
+			default:
+				break;
+			}
+			prevState = state;
+		}
 		switch (state)
 		{
 		case 0:
+			// setBackground(&bg1);
 			homeScreenMenu();
 			break;
 		case 1:
+			setBackground(&bg2);
 			gameScreenMenu();
 			break;
 		default:
