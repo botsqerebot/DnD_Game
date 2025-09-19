@@ -1,8 +1,9 @@
 #include "raylib.h"
-#include "interactivity/buttons/createButton.h"
 #include "background/setBackground.h"
-#include "characters/loadCharacterTextures.h"
 #include "startup/initi.h"
+#include "states/home/homeMeny.h"
+#include "states/game/gameState.h"
+#include "states/setGameState.h"
 
 int main()
 {
@@ -13,19 +14,19 @@ int main()
 		// Setup the back buffer for drawing (clear color and depth buffers)
 		ClearBackground(BLACK);
 
-		// Draw the background texture
-		changeBackgroundTexture(&currentBg);
-		buttonFunction(150, 50, 100, 200, 1, setBackground, &bg1);
-		buttonFunction(150, 50, 100, 300, 2, setBackground, &bg2);
-		buttonFunction(150, 50, 100, 400, 3, setCharacterTextures, (void *)whiteMan);
-		buttonFunction(150, 50, 100, 500, 4, setCharacterTextures, (void *)grayMan);
+		int state = currentState;
+		switch (state)
+		{
+		case 0:
+			homeScreenMenu();
+			break;
+		case 1:
+			gameScreenMenu();
+			break;
+		default:
+			break;
+		}
 
-		ViewCharacters(0, 200);
-
-		drawButton(150, 50, 100, 200, "Hello", BLUE, ORANGE, 1);
-		drawButton(150, 50, 100, 300, "World!", GRAY, ORANGE, 2);
-		drawButton(150, 50, 100, 400, "Character!", GRAY, ORANGE, 3);
-		drawButton(150, 50, 100, 500, "Character2!", GRAY, ORANGE, 4);
 		// end the frame and get ready for the next one  (display frame, poll input, etc...)
 		EndDrawing();
 	}
