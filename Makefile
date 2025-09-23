@@ -1,11 +1,12 @@
 
 CC = cc
 #SRC = src/main.c
-SRC = $(wildcard src/**/**/*.c) $(wildcard src/**/*.c) $(wildcard src/*.c)
+SRC =$(wildcard src/*.c) $(wildcard src/**/*.c) $(wildcard src/**/**/*.c)  $(wildcard src/**/**/**/*.c)
 OUT = DnD_Game
 BUILD_DIR = build
 OUT_PATH = $(BUILD_DIR)/$(OUT)
-INCLUDE = -Iinclude
+#INCLUDE = -Iinclude
+INCLUDE = -Isrc -Iinclude
 RAYLIB_FLAGS = $(shell pkg-config --libs --cflags raylib)
 
 all: $(OUT_PATH)

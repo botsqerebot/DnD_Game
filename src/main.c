@@ -1,10 +1,9 @@
 #include "raylib.h"
-#include "background/setBackground.h"
 #include "startup/initi.h"
 #include "states/home/homeMeny.h"
 #include "states/game/gameState.h"
 #include "states/setGameState.h"
-#include "background/setBackground.h"
+#include "TextureLoading/background/setBackground.h"
 
 int main()
 {

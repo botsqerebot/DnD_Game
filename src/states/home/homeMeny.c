@@ -1,7 +1,7 @@
 #include "raylib.h"
 #include "../../interactivity/buttons/createButton.h"
-#include "../../background/setBackground.h"
-#include "../../characters/loadCharacterTextures.h"
+#include "../../TextureLoading/background/setBackground.h"
+#include "../../TextureLoading/characters/loadCharacterTextures.h"
 #include "../setGameState.h"
 
 void homeScreenMenu()

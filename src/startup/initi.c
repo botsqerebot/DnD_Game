@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "resource_dir.h" // utility header for SearchAndSetResourceDir
-#include "../background/setBackground.h"
+#include "../TextureLoading/background/setBackground.h"
 
 void initilizeStartup()
 {

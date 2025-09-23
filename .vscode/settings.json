@@ -1,5 +1,6 @@
 {
   "files.associations": {
     "resource_dir.h": "c"
-  }
+  },
+  "C_Cpp.errorSquiggles": "enabled"
 }
