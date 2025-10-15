@@ -39,7 +39,7 @@ int main()
 			homeScreenMenu();
 			break;
 		case 1:
-			setBackground(&bg2);
+			// setBackground(&bg2);
 			gameScreenMenu();
 			break;
 		default:

@@ -3,35 +3,23 @@
 
 typedef void (*ButtonCallback)(void *userData);
 
-void buttonFunction(int btnWidth, int btnHeight, int btnX, int btnY, int btnID, ButtonCallback callback, void *userdata)
+// Combining the two functions over making it better and smaller code in total.
+void buttonV2(int btnWidth, int btnHeight, int btnX, int btnY, const char *btnText, Color btnColor, Color btnHoverColor, ButtonCallback callback, void *userdata, int btnID)
 {
-    int ID = btnID;
     Rectangle buttonRect = {btnX, btnY, btnWidth, btnHeight};
-
     bool mouseOverButton = CheckCollisionPointRec(GetMousePosition(), buttonRect);
+
+    // Color buttonColor = btnColor;
+    Color buttonColor = mouseOverButton ? btnHoverColor : btnColor;
+    const char *buttonText = btnText;
+
     if (mouseOverButton && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
     {
-        TraceLog(LOG_INFO, "Button %d clicked", ID);
+        TraceLog(LOG_INFO, "Button %d clicked", btnID);
+
         // use a function i want to pass down using the parameters
         if (callback != NULL)
             callback(userdata);
-    }
-}
-
-void drawButton(int btnWidth, int btnHeight, int btnX, int btnY, const char *btnText, Color btnColor, Color btnHoverColor, int btnID)
-{
-    Rectangle buttonRect = {btnX, btnY, btnWidth, btnHeight};
-    Color buttonColor = btnColor;
-    const char *buttonText = btnText;
-
-    bool mouseOverButton = CheckCollisionPointRec(GetMousePosition(), buttonRect);
-    if (mouseOverButton)
-    {
-        buttonColor = btnHoverColor;
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-        {
-            buttonColor = LIGHTGRAY;
-        }
     }
 
     DrawRectangleRec(buttonRect, buttonColor);
