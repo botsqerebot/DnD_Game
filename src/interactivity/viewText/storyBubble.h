@@ -7,5 +7,6 @@
 #define MARGINBOTTOM 20
 
 void textBubble(char *TextContent, int ID);
-
+void DrawTextWrapped(char *TextContent, Rectangle bounds, int fontSize, Color color);
+void textBubbleWrapped(char *TextContent, int ID);
 #endif
